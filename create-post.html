@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Create Post</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="prism/prism.css" />
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
@@ -17,6 +21,11 @@
     <nav>
       <div class="logo">
         <h2>&lt;dev/&gt;</h2>
+      </div>
+      <div class="links">
+        <button class="toggle-theme" onclick="toggleTheme()">
+          <span class="material-icons theme-toggle-icon">dark_mode</span>
+        </button>
       </div>
     </nav>
     <main>

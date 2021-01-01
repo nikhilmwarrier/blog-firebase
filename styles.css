@@ -236,3 +236,46 @@ body.dark #content {
 .share-bar .thread-share-bar-buttons {
   display: none;
 }
+
+.toggle-theme {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.2s;
+}
+
+.toggle-theme:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.toggle-theme:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body.dark .theme-toggle-icon {
+  color: #fff;
+}
+
+hr {
+  background: transparent;
+  height: 0;
+  width: auto;
+  border-top: 1px solid #222;
+}
+
+h2 {
+  color: #222;
+}
+
+body.dark hr {
+  border-color: #ccc;
+}
+
+body.dark h2 {
+  color: #ddd;
+}
