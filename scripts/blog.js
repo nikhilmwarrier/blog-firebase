@@ -34,5 +34,28 @@ ref.on("value", function (snapshot) {
   <p class="last-updated">Last Updated: ${
     snapshot.val().posts[postTitle].lastUpdated
   } </p>
+  <p class="share" tabindex="0" onclick="share('${
+    snapshot.val().posts[postTitle].title
+  } - nikhilmwarrier Dev Blog')">
+  Share this post
+  <span class="material-icons">share</span>
+  </p>
   `;
 });
+
+function share(text) {
+  if (navigator.share) {
+    navigator
+      .share({
+        title: document.title,
+        url: window.location.href,
+        text: text,
+      })
+      .then(() => {
+        console.log("Thanks for sharing!");
+      })
+      .catch(console.error);
+  } else {
+    console.log("not supported");
+  }
+}

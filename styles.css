@@ -238,7 +238,7 @@ body.dark .logo h2 {
 
 #content {
   background: #fff;
-  padding: 30px;
+  padding: 30px 30px 10px 30px;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -292,4 +292,18 @@ body.dark hr {
 
 body.dark h2 {
   color: #ddd;
+}
+
+.material-icons {
+  font-size: 1rem;
+  vertical-align: middle;
+  position: relative;
+  top: -0.1rem;
+}
+
+.share {
+  cursor: pointer;
+  user-select: none;
+  text-align: right;
+  transition: all 0.2s;
 }
