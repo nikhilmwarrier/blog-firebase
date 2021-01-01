@@ -5,5 +5,5 @@ document.querySelector(".logo").addEventListener("click", () => {
 // dark-mode media query matched or not
 let matched = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-if (matched) console.log("Currently in dark mode");
-else console.log("Currently not in dark mode");
+if (matched) document.body.classList.add("dark");
+else document.body.classList.add("dark");
