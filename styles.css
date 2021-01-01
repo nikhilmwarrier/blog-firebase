@@ -25,6 +25,15 @@ html {
   min-height: 100vh;
   width: 100%;
   max-width: 100%;
+  scrollbar-color: #6c91ff #fff;
+  scrollbar-face-color: #6c91ff;
+  scrollbar-highlight-color: #fff;
+}
+
+html.dark {
+  scrollbar-color: #6c91ff #222;
+  scrollbar-face-color: #6c91ff;
+  scrollbar-highlight-color: #222;
 }
 
 body {
@@ -35,6 +44,9 @@ body {
   padding: 0;
   background: linear-gradient(90deg, #eeffff, #ffeeff);
   transition: all 0.2s;
+  scrollbar-color: #6c91ff #fff;
+  scrollbar-face-color: #fff;
+  scrollbar-highlight-color: #000;
 }
 
 body.dark {
@@ -43,6 +55,67 @@ body.dark {
 
 body.dark * {
   color: #eee;
+}
+
+::-webkit-scrollbar {
+  width: 17px;
+}
+::-webkit-scrollbar-thumb {
+  border: 1px solid #eee;
+  background-color: #6c91ff;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: #3657b8;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar-button {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-button:hover {
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(res/arrow_up.svg);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(res/arrow_down.svg);
+}
+
+::-webkit-scrollbar-button:horizontal {
+  display: none;
+}
+
+body.dark::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+body.dark::-webkit-scrollbar-button {
+  background-color: #222;
+}
+
+body.dark::-webkit-scrollbar-button:hover {
+  background-color: #333;
+}
+
+body.dark::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(res/arrow_up-white.svg);
+}
+
+body.dark::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(res/arrow_down-white.svg);
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  border: 1px solid #222;
+  background-color: #6c91ff;
 }
 
 h1 {
