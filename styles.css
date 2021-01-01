@@ -88,11 +88,20 @@ body.dark p {
   }
 }
 
-.post h2 {
-  color: #333;
+a {
+  color: #222;
 }
 
-body.dark .post h2 {
+body.dark a {
+  color: #eee;
+}
+
+.post h2 a {
+  color: #333;
+  text-decoration: none;
+}
+
+body.dark .post h2 a {
   color: #ddd;
 }
 

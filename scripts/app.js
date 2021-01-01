@@ -37,11 +37,14 @@ ref.on("value", function (snapshot) {
   postsList.forEach((postName) => {
     let div = document.createElement("div");
     div.className = "post";
+    div.tabIndex = "0";
     div.addEventListener("click", () => {
       window.location.href = "./view.html?post=" + postName;
     });
     div.innerHTML = `
-    <h2>${snapshot.val().posts[postName].title}</h2>
+    <h2><a href="./view.html?post=${postName}">${
+      snapshot.val().posts[postName].title
+    }</a></h2>
     <p class='snippet'>${snapshot.val().posts[postName].snippet}</p>
     <p class="last-updated in-posts-card">${
       snapshot.val().posts[postName].lastUpdated
