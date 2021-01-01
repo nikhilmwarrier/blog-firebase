@@ -41,6 +41,10 @@ body.dark {
   background: #222;
 }
 
+body.dark * {
+  color: #eee;
+}
+
 h1 {
   color: #333;
   margin: auto;
