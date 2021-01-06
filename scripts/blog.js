@@ -30,9 +30,14 @@ firebase.analytics();
 
 let ref = firebase.database().ref();
 
-ref.on("value", function (snapshot) {
-  document.title = snapshot.val().posts[postTitle].title;
-  postContentEl.innerHTML = `
+window.addEventListener("hashchange", () => {
+  window.location.reload();
+});
+
+function fixData() {
+  ref.on("value", function (snapshot) {
+    document.title = snapshot.val().posts[postTitle].title;
+    postContentEl.innerHTML = `
   <h1>${snapshot.val().posts[postTitle].title}</h1>
   <p>${snapshot.val().posts[postTitle].content}</p>
   <p class="last-updated">Last Updated: ${
@@ -45,7 +50,10 @@ ref.on("value", function (snapshot) {
   <span class="material-icons">share</span>
   </p>
   `;
-});
+  });
+}
+
+fixData();
 
 function share(text) {
   if (navigator.share) {

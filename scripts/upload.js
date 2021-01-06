@@ -1,7 +1,7 @@
 document.body.style.opacity = "0";
 let inputPassword = prompt("Enter password");
 
-if (inputPassword == "reallyweird") {
+if (inputPassword == "") {
   alert("Auth Granted!");
   document.body.style.opacity = "1";
   /*****FIREBASE */
@@ -22,6 +22,11 @@ if (inputPassword == "reallyweird") {
   firebase.analytics();
 
   let ref = firebase.database().ref();
+
+  ref.on("value", function (snapshot) {
+    const postsList = Object.keys(snapshot.val().posts);
+    localStorage.setItem("totalPosts", postsList.length);
+  });
 
   /******************* */
 
@@ -44,7 +49,7 @@ if (inputPassword == "reallyweird") {
   const publishBtn = document.getElementById("publish-post");
 
   publishBtn.addEventListener("click", () => {
-    const postId = document.getElementById("post-id").value;
+    const postId = Number(localStorage.getItem("totalPosts")) + 1;
     const postTitle = document.getElementById("post-title").value;
     const postSnippet = document.getElementById("post-snippet").value;
     const postContent = tinymce.get("editor").getContent();
