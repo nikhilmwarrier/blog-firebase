@@ -39,10 +39,10 @@ ref.on("value", function (snapshot) {
     div.className = "post";
     div.tabIndex = "0";
     div.addEventListener("click", () => {
-      window.location.href = "./view.html?post=" + postName;
+      window.location.href = "./post/#/" + postName;
     });
     div.innerHTML = `
-    <h2><a href="./view.html?post=${postName}">${
+    <h2><a href="./post/#/${postName}">${
       snapshot.val().posts[postName].title
     }</a></h2>
     <p class='snippet'>${snapshot.val().posts[postName].snippet}</p>

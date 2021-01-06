@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="prism/prism.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style></style>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="scripts/common.js" defer></script>
+    <script src="scripts/blog.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h2>&lt;dev/&gt;</h2>
+      </div>
+      <div class="links">
+        <button class="toggle-theme" onclick="toggleTheme()">
+          <span class="material-icons theme-toggle-icon">dark_mode</span>
+        </button>
+      </div>
+    </nav>
+    <main>
+      <div id="content">
+        <div class="spinner"></div>
+      </div>
+      <h2>Comments</h2>
+      <hr />
+      <div id="disqus_thread"></div>
+      <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /**/
+        var url_string = window.location.href; //window.location.href
+        var url = new URL(url_string);
+        var uniquePageId = url.searchParams.get("post");
+
+        var disqus_config = function () {
+          this.page.url = window.location.href; // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = uniquePageId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function () {
+          // DON'T EDIT BELOW THIS LINE
+          var d = document,
+            s = d.createElement("script");
+          s.src = "https://blog-nmw.disqus.com/embed.js";
+          s.setAttribute("data-timestamp", +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript
+        >Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript"
+          >comments powered by Disqus.</a
+        ></noscript
+      >
+    </main>
+    <script
+      id="dsq-count-scr"
+      src="//blog-nmw.disqus.com/count.js"
+      async
+    ></script>
+    <script src="prism/prism.js"></script>
+  </body>
+</html>

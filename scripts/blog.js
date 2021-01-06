@@ -1,8 +1,12 @@
 const postContentEl = document.getElementById("content");
 
+function getHash(substri) {
+  return window.location.hash.substring(substri);
+}
+
 var url_string = window.location.href; //window.location.href
 var url = new URL(url_string);
-var postTitle = url.searchParams.get("post");
+var postTitle = getHash(2);
 if (postTitle <= 0) {
   window.location.href = "./index.html";
 }

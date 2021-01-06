@@ -8,16 +8,20 @@ function themeInit() {
   if (theme == "dark") {
     console.log("dark");
     document.body.classList.add("dark");
+    document.documentElement.classList.add("dark");
   } else if (theme == "light") {
     document.body.classList.remove("dark");
+    document.documentElement.classList.remove("dark");
   } else {
     // dark-mode media query matched or not
     let matched = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (matched) {
       document.body.classList.add("dark");
+      document.documentElement.classList.add("dark");
     } else {
       document.body.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
     }
   }
 }
@@ -31,8 +35,10 @@ function toggleTheme() {
   document.body.classList.toggle("dark");
   if (document.body.className == "dark") {
     theme = "dark";
+    document.documentElement.classList.add("dark");
   } else {
     theme = "light";
+    document.documentElement.classList.remove("dark");
   }
   if (theme == "light") {
     toggleIcon.innerHTML = "dark_mode";
