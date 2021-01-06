@@ -53,7 +53,7 @@ body.dark {
   background: #222;
 }
 
-body.dark * {
+body.dark table {
   color: #eee;
 }
 
@@ -225,6 +225,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  z-index: 10;
 }
 
 body.dark nav {
@@ -383,4 +384,86 @@ body.dark h2 {
   user-select: none;
   text-align: right;
   transition: all 0.2s;
+}
+
+#comments {
+  width: 100%;
+  padding-bottom: 150px;
+}
+
+.comment {
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  margin: 20px 0;
+  border-radius: 5px 5px 5px 0;
+  border: 1px solid #ccc;
+  line-height: 2rem;
+}
+
+body.dark .comment {
+  background: #333;
+}
+
+.comment .user {
+  color: #3657b8;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+body.dark .comment .user {
+  color: #6c91ff;
+}
+
+.comment .content,
+.comment .last-updated {
+  padding-left: 10px;
+}
+
+.details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.details[open] > .content {
+  animation: openDetails 0.5s;
+  padding: 20px 0 0 0;
+}
+
+.details:focus-within {
+  outline: none;
+}
+
+.details summary {
+  user-select: none;
+  list-style: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  user-select: none;
+}
+
+.details summary::marker {
+  display: none;
+}
+
+::-webkit-details-marker {
+  display: none;
+}
+
+.details summary:focus {
+  outline: none;
+}
+
+@keyframes openDetails {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

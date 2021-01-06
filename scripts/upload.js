@@ -1,7 +1,7 @@
 document.body.style.opacity = "0";
 let inputPassword = prompt("Enter password");
 
-if (inputPassword == "") {
+if (inputPassword == "reallyweird") {
   alert("Auth Granted!");
   document.body.style.opacity = "1";
   /*****FIREBASE */

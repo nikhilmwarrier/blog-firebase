@@ -1,4 +1,5 @@
 const postContentEl = document.getElementById("content");
+const commentContainer = document.getElementById("comments");
 
 function getHash(substri) {
   return window.location.hash.substring(substri);
@@ -51,10 +52,38 @@ function fixData() {
   </p>
   `;
   });
+  ref.on("value", function (snapshot) {
+    const commentsList = Object.keys(snapshot.val().comments[postTitle]);
+    commentsList.sort();
+    commentsList.reverse();
+
+    localStorage.setItem(`comments-list-for-${postTitle}`, commentsList);
+
+    commentsList.forEach((comment) => {
+      console.log(snapshot.val().comments[postTitle][comment]);
+      let div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `
+        <div class="user">${
+          snapshot.val().comments[postTitle][comment].name
+        }</div>
+        <div class="content">${
+          snapshot.val().comments[postTitle][comment].content
+        }</div>
+        <div class="last-updated">${
+          snapshot.val().comments[postTitle][comment].lastUpdated
+        }</div>
+      `;
+      commentContainer.appendChild(div);
+    });
+  });
 }
 
 fixData();
 
+console.log(window.location.href + window.location.hash);
+
+/********************/
 function share(text) {
   if (navigator.share) {
     navigator
@@ -80,3 +109,45 @@ function share(text) {
     alert("Link Copied");
   }
 }
+
+/******************/
+tinymce.init({
+  selector: "#comments-editor",
+  plugins: [
+    "code",
+    "quickbars",
+    "media",
+    "link",
+    "image",
+    "fullscreen",
+    "emoticons",
+    "codesample",
+    "insertdatetime",
+    "searchreplace",
+  ],
+});
+
+/******************/
+function uploadComment() {
+  let commentsList = localStorage.getItem(`comments-list-for-${postTitle}`);
+  var today = new Date();
+
+  var now = today.toDateString();
+  var nowNum = Date.now().toString();
+
+  firebase
+    .database()
+    .ref(`comments/${postTitle}/${Number(commentsList) + 1}`)
+    .set({
+      name: document.getElementById("commenter-name").value,
+      content: tinymce.get("comments-editor").getContent(),
+      lastUpdated: now,
+      lastUpdatedNumerical: nowNum,
+    });
+  window.location.reload();
+}
+
+ref.on("value", function (snapshot) {
+  const postsList = Object.keys(snapshot.val().posts);
+  console.log(postsList);
+});
