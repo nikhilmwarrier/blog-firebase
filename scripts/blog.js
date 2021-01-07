@@ -54,7 +54,7 @@ function fixData() {
   <span class="material-icons">share</span>
   </p>
   `;
-  Prism.highlightAll();
+    Prism.highlightAll();
   });
   ref.on("value", function (snapshot) {
     const commentsList = Object.keys(snapshot.val().comments[postTitle]);

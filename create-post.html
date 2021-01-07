@@ -12,12 +12,25 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>
     <script src="prism/prism.js" defer></script>
     <script src="scripts/common.js" defer></script>
     <script src="scripts/upload.js" defer></script>
   </head>
   <body>
+    <div class="overlay" id="modal-overlay">
+      <div class="modal">
+        <button
+          type="button"
+          id="signInWithGoogleBtn"
+          class="login-with-google-btn"
+        >
+          Sign in with Google to continue
+        </button>
+      </div>
+    </div>
     <nav>
       <div class="logo">
         <h2>&lt;dev/&gt;</h2>
