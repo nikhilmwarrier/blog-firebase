@@ -1,6 +1,9 @@
 const postContentEl = document.getElementById("content");
 const commentContainer = document.getElementById("comments");
 
+window.Prism = window.Prism || {};
+Prism.manual = true;
+
 function getHash(substri) {
   return window.location.hash.substring(substri);
 }
@@ -51,6 +54,7 @@ function fixData() {
   <span class="material-icons">share</span>
   </p>
   `;
+  Prism.highlightAll();
   });
   ref.on("value", function (snapshot) {
     const commentsList = Object.keys(snapshot.val().comments[postTitle]);
