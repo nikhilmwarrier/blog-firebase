@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>nikhilmwarrier devblogs</title>
+        <link>https://nikhilmwarrier.github.io/blog</link>
+        <description>Blog Posts</description>
+        <language>en-us</language>
+        <item>
+            <title></title>
+            <pubDate></pubDate>
+            <link>https://nikhilmwarrier.github.io/post#/5</link>
+            <description><![CDATA[Visit this <a href="https://nikhilmwarrier.github.io/">link</a> to my website!]]></description>
+            <author>champion.26nikhil@gmail.com</author>
+            <category> Web Development</category>  
+        </item>
+    </channel>
+</rss>
